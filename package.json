@@ -1,0 +1,35 @@
+{
+  "name": "golf-journal-api",
+  "version": "1.0.0",
+  "description": "an api using Express, Knex, and PostgreSQL",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhtomitim/golf-journal-api.git"
+  },
+  "keywords": [
+    "server",
+    "capstone"
+  ],
+  "author": "Tim Hurley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yhtomitim/golf-journal-api/issues"
+  },
+  "homepage": "https://github.com/yhtomitim/golf-journal-api#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3"
+  }
+}
