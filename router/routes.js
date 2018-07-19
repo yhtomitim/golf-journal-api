@@ -15,4 +15,29 @@ router.get('/holes', (req, res, next) => {
     .catch(next);
 });
 
+router.post('/savehole', (req, res, next) => {
+  queries.saveHole(req.body)
+    .then(record => res.status(201).json({ message: 'hole saved' }))
+    .then(record => console.log(req.body))
+    .catch(next);
+});
+
+router.get('/rounds', (req, res, next) => {
+  queries.listRounds()
+    .then(rounds => res.json({ rounds }))
+    .catch(next);
+});
+
+router.get('/rounds/:userid', (req, res, next) => {
+  console.log(req.params);
+  queries.roundsByUserId(req.params)
+    .then(round => res.status(200).json({ round }))
+    .then(round => console.log(round.body));
+});
+router.post('/newround', (req, res, next) => {
+  queries.newRound(req.body)
+    .then(record => res.status(201).json({message: 'round created'}))
+    .catch(next);
+});
+
 module.exports = router;
