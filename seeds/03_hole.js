@@ -789,7 +789,7 @@ module.exports.seed = (knex) => {
           notes: 'two chips from off green, 1 putt'
         }, {
           id: 105,
-          round_id: '2',
+          round_id: '6',
           hole: '18',
           par: '4',
           score: '3',
