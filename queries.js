@@ -23,7 +23,21 @@ module.exports = {
   newRound(userId) {
     return knex('round')
       .insert(userId)
+      .returning('id')
+      .then(record => record[0]);
+  },
+   findUser(user) {
+    return knex('user')
+      .where('uid', user.uid)
+      .then(foundUser => foundUser[0]);
+  },
+  createUser(user) {
+    return knex('user')
+      .insert(user)
       .returning('*')
       .then(record => record[0]);
-  }
+  },
+  listUsers() {
+    return knex('user');
+  },
 };
