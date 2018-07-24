@@ -15,9 +15,9 @@ module.exports = {
   listRounds() {
     return knex('round');
   },
-  roundsByUserId(userId) {
+  roundsByUserId(user) {
     return knex('round')
-      .where('user_id', userId.userid)
+      .where('user_id', user)
       .then(rounds => rounds);
   },
   newRound(userId) {
