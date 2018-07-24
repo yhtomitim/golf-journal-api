@@ -24,7 +24,7 @@ router.post('/savehole', (req, res, next) => {
 
 router.get('/rounds', (req, res, next) => {
   queries.listRounds()
-    .then(rounds => res.json({ rounds }))
+    .then(rounds => res.json({rounds}))
     .catch(next);
 });
 
@@ -36,7 +36,26 @@ router.get('/rounds/:userid', (req, res, next) => {
 });
 router.post('/newround', (req, res, next) => {
   queries.newRound(req.body)
-    .then(record => res.status(201).json({message: 'round created'}))
+    .then(record => res.status(201).json(record))
+    .catch(next);
+});
+
+router.get('/users', (req, res, next) => {
+  queries.listUsers()
+    .then(users => res.json({ users }))
+    .catch(next);
+});
+
+router.get('/users/:uid', (req, res, next) => {
+  queries.findUser(req.params)
+    .then(user => {
+      user
+        ? res.json({ user })
+        // : res.status(404).json({ message: 'username not found' });
+        : queries.createUser(req.params)
+          .then(record => res.status(201).json({record}))
+          .then(record => console.log(record));
+    })
     .catch(next);
 });
 
