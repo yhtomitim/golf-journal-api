@@ -29,7 +29,6 @@ router.get('/rounds', (req, res, next) => {
 });
 
 router.get('/rounds/:userid', (req, res, next) => {
-  console.log(req.params);
   queries.roundsByUserId(req.params)
     .then(round => res.status(200).json({ round }))
     .then(round => console.log(round.body));
@@ -47,14 +46,20 @@ router.get('/users', (req, res, next) => {
 });
 
 router.get('/users/:uid', (req, res, next) => {
+  console.log(req.params);
   queries.findUser(req.params)
     .then(user => {
-      user
-        ? res.json({ user })
-        // : res.status(404).json({ message: 'username not found' });
-        : queries.createUser(req.params)
-          .then(record => res.status(201).json({record}))
-          .then(record => console.log(record));
+      console.log(user);
+      if (user !== undefined) {
+        res.json({
+          user
+        });
+      } else {
+        queries.createUser(req.params)
+          .then(user => res.status(201).json({
+            user
+          }));
+      }
     })
     .catch(next);
 });
