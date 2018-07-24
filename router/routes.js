@@ -29,9 +29,10 @@ router.get('/rounds', (req, res, next) => {
 });
 
 router.get('/rounds/:userid', (req, res, next) => {
-  queries.roundsByUserId(req.params)
-    .then(round => res.status(200).json({ round }))
-    .then(round => console.log(round.body));
+  console.log(req.params.userid);
+  queries.roundsByUserId(req.params.userid)
+    .then(rounds => res.status(200).json({ rounds }))
+    .then(rounds => console.log(rounds.body));
 });
 router.post('/newround', (req, res, next) => {
   queries.newRound(req.body)
