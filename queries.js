@@ -5,8 +5,6 @@ module.exports = {
     return knex('hole');
   },
   saveHole(hole) {
-    console.log(hole);
-    
     return knex('hole')
       .insert(hole)
       .returning('*')

@@ -9,10 +9,10 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use('/api/v1', routes);
 
-app.use('/', (req, res, next) => {
-  res.send({ message: 'welcome to the golf journal api, please use /api/v1 as the base endpoint' })
-    .catch(next);
-});
+// app.use('/', (req, res, next) => {
+//   res.send({ message: 'welcome to the golf journal api, please use /api/v1 as the base endpoint' })
+//     .catch(next);
+// });
 
 
 app.use((req, res, next) => {
