@@ -16,7 +16,6 @@ router.get('/holes', (req, res, next) => {
 });
 
 router.post('/holes/savehole', (req, res, next) => {
-  console.log(req.body);
   queries.saveHole(req.body)
     .then(record => res.status(201).json({ record }))
     .then(res => console.log(res))
@@ -30,7 +29,6 @@ router.get('/rounds', (req, res, next) => {
 });
 
 router.get('/rounds/:userid', (req, res, next) => {
-  console.log(req.params.userid);
   queries.roundsByUserId(req.params.userid)
     .then(rounds => res.status(200).json({ rounds }))
     .then(rounds => console.log(rounds.body))
