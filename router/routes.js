@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 router.get('/holes/', (req, res, next) => {
   queries.listHoles(req.params)
     .then(holes => res.json({holes}))
-    .catch(next)
+    .catch(next);
 });
 
 router.get('/holes/:roundId', (req, res, next) => {
