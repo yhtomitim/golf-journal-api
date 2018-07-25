@@ -50,16 +50,14 @@ router.get('/users', (req, res, next) => {
 });
 
 router.get('/users/:uid', (req, res, next) => {
-  console.log(req.params);
+
   queries.findUser(req.params)
     .then(user => {
-      console.log(user);
       if (user !== undefined) {
         res.json({ user });
-      } else {
-        queries.createUser(req.params)
-          .then(user => res.status(201).json({ user }));
       }
+      queries.createUser(req.params)
+        .then(user => res.status(201).json({ user }));
     })
     .catch(next);
 });
