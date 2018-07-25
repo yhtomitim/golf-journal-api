@@ -7,15 +7,15 @@ module.exports.seed = (knex) => {
       return knex('user').insert([
         {
           id: 1,
-          uid: 'thurley'
+          uid: 'Tim Hurley'
         },
         {
           id: 2,
-          uid: 'bhurley'
+          uid: 'Bailey Hurley'
         },
         {
           id: 3,
-          uid: 'hhurley'
+          uid: 'Hunter Hurley'
         }
       ]);
     })

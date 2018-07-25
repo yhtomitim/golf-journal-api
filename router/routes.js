@@ -9,16 +9,23 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
-router.get('/holes', (req, res, next) => {
-  queries.listHoles()
+router.get('/holes/', (req, res, next) => {
+  queries.listHoles(req.params)
     .then(holes => res.json({holes}))
+    .catch(next)
+});
+
+router.get('/holes/:roundId', (req, res, next) => {
+  console.log(req.params);
+  queries.getHolesForRound(req.params)
+    .then(holes => res.json({ holes }))
     .catch(next);
 });
 
 router.post('/holes/savehole', (req, res, next) => {
   queries.saveHole(req.body)
     .then(record => res.status(201).json({ record }))
-    .then(res => console.log(res))
+    // .then(res => console.log(res))
     .catch(next);
 });
 
@@ -52,7 +59,7 @@ router.get('/users/:uid', (req, res, next) => {
   queries.findUser(req.params)
     .then(user => {
       if (user !== undefined) {
-        res.json({ user });
+        return res.json({ user });
       }
       queries.createUser(req.params)
         .then(user => res.status(201).json({ user }));

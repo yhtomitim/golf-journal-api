@@ -10,6 +10,11 @@ module.exports = {
       .returning('*')
       .then(record => record[0]);
   },
+  getHolesForRound(round) {
+    return knex('hole')
+      .where('round_id', round.roundId)
+      .then(holes => holes);
+  },
   listRounds() {
     return knex('round');
   },
