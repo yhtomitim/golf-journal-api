@@ -16,4 +16,4 @@ $ npm run dev
 ```
 ### Overview
 
-The API interfaces with a PostgreSQL database using Knex.js so that the developer can write their queries in a familiar language. There are routes in the API for users, rounds of holf, and holes in each round of golf. The API can be tested using Postman or other similar apps.
+The API interfaces with a PostgreSQL database using Knex.js so that the developer can write their queries in a familiar language. There are routes in the API for users, rounds of golf, and holes in each round of golf. The API can be tested using Postman or other similar apps.
